@@ -2,9 +2,9 @@ package org.praktikum.user;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import org.praktikum.constants.RequestUrls;
+import org.praktikum.constants.Requests;
 
-public class LoginUser extends RequestUrls {
+public class LoginUser extends Requests {
     User user;
 
     public LoginUser(User user) {
@@ -13,6 +13,6 @@ public class LoginUser extends RequestUrls {
 
     @Step("Логин пользователя")
     public ValidatableResponse loginUser() {
-        return doPostRequest(getLOGIN_USER_URL(), user);
+        return doPostRequest(LOGIN_USER_URL, user);
     }
 }

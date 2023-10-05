@@ -2,10 +2,10 @@ package org.praktikum.user;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import org.praktikum.constants.RequestUrls;
+import org.praktikum.constants.Requests;
 import org.praktikum.token.Token;
 
-public class RegisterUser extends RequestUrls {
+public class RegisterUser extends Requests {
     User user;
 
     public RegisterUser(User user) {
@@ -14,7 +14,7 @@ public class RegisterUser extends RequestUrls {
 
     @Step("Регистрация пользователя")
     public ValidatableResponse registerUser() {
-        return doPostRequest(getREGISTER_USER_URL(), user);
+        return doPostRequest(REGISTER_USER_URL, user);
     }
 
     @Step("Получение  accessToken")
@@ -24,6 +24,6 @@ public class RegisterUser extends RequestUrls {
 
     @Step("Удаление пользователя")
     public ValidatableResponse deleteUser(String token) {
-        return doDeleteRequest(getAUTH_USER_URL(), token);
+        return doDeleteRequest(AUTH_USER_URL, token);
     }
 }

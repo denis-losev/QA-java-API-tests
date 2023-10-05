@@ -2,9 +2,9 @@ package org.praktikum.user;
 
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import org.praktikum.constants.RequestUrls;
+import org.praktikum.constants.Requests;
 
-public class EditUser extends RequestUrls {
+public class EditUser extends Requests {
     User user;
 
     public EditUser(User user) {
@@ -13,6 +13,6 @@ public class EditUser extends RequestUrls {
 
     @Step("Изменение персональных данных пользователя")
     public ValidatableResponse editData(Object newData, String accessToken) {
-        return doPatchRequest(getAUTH_USER_URL(), accessToken, newData);
+        return doPatchRequest(AUTH_USER_URL, accessToken, newData);
     }
 }
